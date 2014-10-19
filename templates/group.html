@@ -1,0 +1,120 @@
+<template name='group'>
+  {{#if group}}
+  <h1>{{group.title}}</h1>
+  <p>{{group.description}}</p>
+  
+  <div class="panel-group" id="accordion">
+    {{#if manager group}}
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" id="add_activity" href="#new_activity">
+            <span class="glyphicon glyphicon-plus"></span> Add an activity
+          </a>
+        </h4>
+      </div>
+      <div id="new_activity" class="panel-collapse collapse">
+        <div class="panel-body">
+           <form class="form-horizontal" role="form">  
+             <div class="form-group">
+                <input type="text" class="form-control" id="activity_title" placeholder="Title..."> 
+              </div>    
+              <div class="form-group">
+                 <input type="text" class="form-control" id="activity_description" placeholder="Description..."> 
+               </div> 
+               <div class="form-group">
+                  <input type="text" class="form-control" id="activity_max" placeholder="Max number of participants..."> 
+                </div>  
+           
+    
+             <div class="form-group">
+            <button  id='add_activity' class="btn btn-default">Create</button>
+          </div>
+           </form>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{#each activities}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" class='choose_activity' data-parent="#accordion" href="#{{_id}}">
+            {{title}} <span class="label label-warning"> {{participant_count this}}</span> 
+          </a>
+        </h4>
+      </div>
+      <div id="{{_id}}" class="panel-collapse collapse ">
+        <div class="panel-body">
+          {{description}}
+          <a id='{{_id}}' class='participate btn btn-primary'>Participate</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  
+  <div class="panel-group" id="accordion">
+     <h1>English tests</h1>
+    {{#if manager group}}
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" id="add_test" href="#new_test">
+            <span class="glyphicon glyphicon-plus"></span> Add a Test
+          </a>
+        </h4>
+      </div>
+      <div id="new_test" class="panel-collapse collapse">
+        <div class="panel-body">
+           <form class="form-horizontal" role="form">  
+             <div class="form-group">
+                <input type="text" class="form-control" id="test_title" placeholder="Title..."> 
+              </div>    
+              <div class="form-group">
+                 <input type="text" class="form-control" id="test_description" placeholder="Description..."> 
+               </div> 
+              
+           
+    
+             <div class="form-group">
+            <button  id='add_test' class="btn btn-default">Create</button>
+          </div>
+           </form>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    
+   
+    {{#each tests}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" class='choose_test' data-parent="#accordion" href="#{{_id}}">
+            {{title}} <span class="label label-warning"> {{participant_count this}}</span> 
+            
+          </a>
+        </h4>
+      </div>
+      <div id="{{_id}}" class="panel-collapse collapse ">
+        <div class="panel-body">
+        
+          
+          {{>items}}
+          
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  
+  
+  
+  
+  {{else}}
+  <p>Please choose a group</p>
+  {{/if}}
+
+</template>
