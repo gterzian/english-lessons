@@ -3,12 +3,12 @@
   <h1>{{group.title}}</h1>
   <p>{{group.description}}</p>
   
-  <div class="panel-group" id="accordion">
+  <div class="panel-group" id="accordion_activity">
     {{#if manager group}}
     <div class="panel panel-info">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" id="add_activity" href="#new_activity">
+          <a data-toggle="collapse" data-parent="#accordion_activity" id="add_activity" href="#new_activity">
             <span class="glyphicon glyphicon-plus"></span> Add an activity
           </a>
         </h4>
@@ -39,7 +39,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" class='choose_activity' data-parent="#accordion" href="#{{_id}}">
+          <a data-toggle="collapse" class='choose_activity' data-parent="#accordion_activity" href="#{{_id}}">
             {{title}} <span class="label label-warning"> {{participant_count this}}</span> 
           </a>
         </h4>
@@ -54,13 +54,13 @@
     {{/each}}
   </div>
   
-  <div class="panel-group" id="accordion">
+  <div class="panel-group" id="accordion_tests">
      <h1>English tests</h1>
     {{#if manager group}}
     <div class="panel panel-info">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" id="add_test" href="#new_test">
+          <a data-toggle="collapse" data-parent="#accordion_tests" id="add_test" href="#new_test">
             <span class="glyphicon glyphicon-plus"></span> Add a Test
           </a>
         </h4>
@@ -91,7 +91,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" class='choose_test' data-parent="#accordion" href="#{{_id}}">
+          <a data-toggle="collapse" class='choose_test' data-parent="#accordion_tests" href="#{{_id}}">
             {{title}} <span class="label label-warning"> {{participant_count this}}</span> 
             
           </a>

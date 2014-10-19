@@ -32,14 +32,14 @@
       {{/if}}
     {{/if}}
   {{/if}}
-  <div class="panel-test" id="accordion">
+  <div class="panel-group" id="accordion_items">
     {{#if manager test}}
      {{#if started test}}
      {{else}}
     <div class="panel panel-info">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" id="add_item" href="#new_item">
+          <a data-toggle="collapse" data-parent="#accordion_items" id="add_item" href="#new_item">
             <span class="glyphicon glyphicon-plus"></span> {{i18n "Add question"}}
           </a>
         </h4>
@@ -100,7 +100,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" class='answer_question' data-parent="#accordion" href="#{{_id}}">
+          <a data-toggle="collapse" class='answer_question' data-parent="#accordion_items" href="#{{_id}}">
             {{title}}  
                 {{#if answered this}}
                    {{#if answered_correctly this}} 
@@ -159,7 +159,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" class='view_question' data-parent="#accordion" href="#{{_id}}">
+          <a data-toggle="collapse" class='view_question' data-parent="#accordion_items" href="#{{_id}}">
             {{title}} | {{i18n "Discuss"}} {{#if new_match this._id}}
                   <span class="label label-warning">{{i18n "New message"}}</span>
                  {{/if}}
